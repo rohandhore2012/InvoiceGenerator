@@ -151,7 +151,9 @@ public class InvoiceGenerator extends Application {
     private void generatePDF() {
         try {
             Document document = new Document(PageSize.A4, 40, 40, 50, 50);
-            PdfWriter.getInstance(document, new FileOutputStream("Invoice.pdf"));
+            String savePath = System.getProperty("user.home") + "/Documents/Invoice_" + System.currentTimeMillis() + ".pdf";
+            PdfWriter.getInstance(document, new FileOutputStream(savePath));
+
             document.open();
 
             // Add Company Header
